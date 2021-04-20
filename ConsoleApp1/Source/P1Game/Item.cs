@@ -8,7 +8,8 @@ namespace TcGame
         {
             switch (number)
             {
-
+                default:
+                    break;
             }
         }
     }
