@@ -2,6 +2,7 @@
 using SFML.Window;
 using System.Collections.Generic;
 using SFML.System;
+using System;
 
 namespace TcGame
 {
@@ -17,6 +18,7 @@ namespace TcGame
 
     private Texture backgroundTexture;
     private Sprite backgroundSprite;
+    private Random rnd = new Random();
         
     public float SlotWidth
     {
@@ -139,8 +141,7 @@ namespace TcGame
         
     private Item NewRandomItem()
     {
-
-      return null;
+      return new Item(rnd.Next(7));
     }
 
     private void RemoveLastItem()

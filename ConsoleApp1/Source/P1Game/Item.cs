@@ -2,8 +2,14 @@
 
 namespace TcGame
 {
-  public abstract class Item : Sprite
-  {
+    public abstract class Item : Sprite
+    {
+        public Item(int number)
+        {
+            switch (number)
+            {
 
-  }
+            }
+        }
+    }
 }
