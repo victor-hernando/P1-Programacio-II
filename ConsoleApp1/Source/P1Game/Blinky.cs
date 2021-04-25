@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1.Source.P1Game
+namespace TcGame
 {
-    class Blinky
+    class Blinky : Item
     {
-
     }
 }
