@@ -6,5 +6,6 @@ namespace ConsoleApp1.Source.P1Game
 {
     class Blinky
     {
+
     }
 }
