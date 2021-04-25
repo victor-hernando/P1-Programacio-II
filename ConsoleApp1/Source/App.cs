@@ -7,6 +7,7 @@
       Engine engine = new Engine();
       engine.Run(new P1Game());
 
+            int numero = 80;
      string hola;
     }
   }
