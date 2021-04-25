@@ -139,8 +139,8 @@ namespace TcGame
         
     private Item NewRandomItem()
     {
-
-      return null;
+       return 
+       return null;
     }
 
     private void RemoveLastItem()

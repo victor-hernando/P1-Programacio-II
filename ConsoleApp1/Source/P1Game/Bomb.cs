@@ -4,9 +4,9 @@ using SFML.Window;
 using SFML.System;
 using SFML.Audio;
 
-namespace ConsoleApp1.Source.P1Game
+namespace TcGame
 {
-    class Bomb
+    class Bomb : Item
     {
         Texture bombTexture = new Texture("Data/Textures/Bomb.png");
        

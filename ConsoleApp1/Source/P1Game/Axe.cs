@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1.Source.P1Game
+namespace TcGame
 {
-    class Axe
+    class Axe : Weapon
     {
+
     }
 }
