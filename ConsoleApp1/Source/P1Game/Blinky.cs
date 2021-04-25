@@ -6,5 +6,6 @@ namespace TcGame
 {
     class Blinky : Item
     {
+        
     }
 }
