@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using SFML.Graphics;
 using SFML.Window;
 using SFML.System;
@@ -8,7 +10,12 @@ namespace TcGame
 {
     class Bomb : Item
     {
-        Texture bombTexture = new Texture("Data/Textures/Bomb.png");
+        public Bomb(Texture texture, int X, int Y) : base(texture, X, Y)
+        {
+            Sprite Bomb = new Sprite();
+            Bomb.Texture = texture;
+            Bomb.Origin = new Vector2f(X/2, Y/2);
+        }
        
     }
 }
