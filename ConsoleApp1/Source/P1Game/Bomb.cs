@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Bomb = new Sprite();
             Bomb.Texture = texture;
-            Bomb.Origin = new Vector2f(X/2, Y/2);
+            Bomb.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
        
     }

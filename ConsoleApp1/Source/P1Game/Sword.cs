@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Sowrd = new Sprite();
             Sowrd.Texture = texture;
-            Sowrd.Origin = new Vector2f(X / 2, Y / 2);
+            Sowrd.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

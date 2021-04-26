@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Blinky = new Sprite();
             Blinky.Texture = texture;
-            Blinky.Origin = new Vector2f(X/2, Y/2);
+            Blinky.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

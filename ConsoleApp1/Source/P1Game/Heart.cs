@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Heart = new Sprite();
             Heart.Texture = texture;
-            Heart.Origin = new Vector2f(X/2, Y/2);
+            Heart.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
 
     }

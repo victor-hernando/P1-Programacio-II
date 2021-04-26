@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Clyde = new Sprite();
             Clyde.Texture = texture;
-            Clyde.Origin = new Vector2f(X/2, Y/2);
+            Clyde.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

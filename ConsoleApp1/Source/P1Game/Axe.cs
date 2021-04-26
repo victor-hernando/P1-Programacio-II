@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Axe = new Sprite();
             Axe.Texture = texture;
-            Axe.Origin = new Vector2f(X / 2, Y / 2);
+            Axe.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

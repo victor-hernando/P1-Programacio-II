@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Coin = new Sprite();
             Coin.Texture = texture;
-            Coin.Origin = new Vector2f(X/2, Y/2);
+            Coin.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace TcGame
         {
             Sprite Weapon = new Sprite();
             Weapon.Texture = texture;
-            Weapon.Origin = new Vector2f(X / 2, Y / 2);
+            Weapon.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }
