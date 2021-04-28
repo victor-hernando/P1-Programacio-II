@@ -10,11 +10,10 @@ namespace TcGame
 {
     class Coin : Item
     {
-        public Coin(Texture texture, int X, int Y) : base(texture, X, Y)
+        static Texture tex = new Texture("Data/Textures/Coin.jpg");
+        public Coin() : base(tex)
         {
-            Sprite Coin = new Sprite();
-            Coin.Texture = texture;
-            Coin.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
+            Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

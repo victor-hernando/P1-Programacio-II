@@ -10,11 +10,10 @@ namespace TcGame
 {
     class Heart : Item
     {
-        public Heart(Texture texture, int X, int Y) : base(texture, X, Y)
+        static Texture tex = new Texture("Data/Textures/Heart.jpg");
+        public Heart() : base(tex)
         {
-            Sprite Heart = new Sprite();
-            Heart.Texture = texture;
-            Heart.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
+            Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
 
     }

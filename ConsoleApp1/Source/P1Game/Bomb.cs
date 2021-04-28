@@ -10,7 +10,7 @@ namespace TcGame
 {
     class Bomb : Item
     {
-        static Texture tex = new Texture("Data/Textures/Background.jpg");
+        static Texture tex = new Texture("Data/Textures/Bomb.jpg");
 
         public Bomb() : base(tex)
         {

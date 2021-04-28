@@ -10,11 +10,10 @@ namespace TcGame
 {
     class Clyde : Item
     {
-        public Clyde(Texture texture, int X, int Y) : base(texture, X, Y)
+        static Texture tex = new Texture("Data/Textures/Clyde.jpg");
+        public Clyde() : base(tex)
         {
-            Sprite Clyde = new Sprite();
-            Clyde.Texture = texture;
-            Clyde.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
+            Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

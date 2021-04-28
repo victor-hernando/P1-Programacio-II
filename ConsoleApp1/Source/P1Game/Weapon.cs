@@ -10,11 +10,8 @@ namespace TcGame
 {
     abstract class Weapon : Item
     {
-        public Weapon(Texture texture, int X, int Y) : base(texture, X, Y)
+        public Weapon(Texture tex) : base(tex)
         {
-            Sprite Weapon = new Sprite();
-            Weapon.Texture = texture;
-            Weapon.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

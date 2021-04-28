@@ -10,11 +10,10 @@ namespace TcGame
 {
     class Blinky : Item
     {
-        public Blinky(Texture texture, int X, int Y) : base(texture, X, Y)
+        static Texture tex = new Texture("Data/Textures/Blinky.jpg");
+        public Blinky() : base(tex)
         {
-            Sprite Blinky = new Sprite();
-            Blinky.Texture = texture;
-            Blinky.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
+            Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

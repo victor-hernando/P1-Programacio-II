@@ -10,11 +10,10 @@ namespace TcGame
 {
     class Axe : Weapon
     {
-        public Axe(Texture texture, int X, int Y) : base(texture, X, Y)
+        static Texture tex = new Texture("Data/Textures/Axe.jpg");
+        public Axe() : base(tex)
         {
-            Sprite Axe = new Sprite();
-            Axe.Texture = texture;
-            Axe.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
+            Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
 }

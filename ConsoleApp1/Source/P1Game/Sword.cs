@@ -10,10 +10,10 @@ namespace TcGame
 {
     class Sword : Weapon
     {
-        public Sword(Texture texture, int X, int Y) : base(texture, X, Y)
+        private Texture texture = new Texture("Data/Textures/Sword.jpg");
+        public Sword() : base(texture)
         {
             Sprite Sowrd = new Sprite();
-            Sowrd.Texture = texture;
             Sowrd.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
     }
