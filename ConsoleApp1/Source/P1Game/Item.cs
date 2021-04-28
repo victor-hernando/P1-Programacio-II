@@ -5,15 +5,9 @@ namespace TcGame
 {
   public abstract class Item : Sprite
   {
-        static Random rnd = new Random();
-        Texture tex;
-        int sizeX;
-        int sizeY;
-        public Item(Texture texture, int X, int Y)
+        public Item(Texture texture)
         {
-            tex = texture;
-            sizeX = X;
-            sizeY = Y;
+            Texture = texture;
         }
   }
 }

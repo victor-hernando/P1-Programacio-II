@@ -10,11 +10,10 @@ namespace TcGame
 {
     class Bomb : Item
     {
-        public Bomb(Texture texture, int X, int Y) : base(texture, X, Y)
+        static Texture tex = new Texture("Data/Textures/Background.jpg");
+
+        public Bomb() : base(tex)
         {
-            Sprite Bomb = new Sprite();
-            Bomb.Texture = texture;
-            Bomb.Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
        
     }
