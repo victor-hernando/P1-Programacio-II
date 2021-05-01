@@ -42,7 +42,6 @@ namespace TcGame
             backgroundSprite = new Sprite(backgroundTexture);
 
             items = new List<Item>();
-
             FillGridLines();
         }
 
@@ -142,7 +141,7 @@ namespace TcGame
 
         private Item NewRandomItem()
         {
-            /*switch (rnd.Next(6))
+            switch (rnd.Next(6))
             {
                 case 0:
                     return new Blinky();
@@ -159,8 +158,6 @@ namespace TcGame
                 default:
                     return null;
             }
-            */
-            return new Bomb();
         }
 
 

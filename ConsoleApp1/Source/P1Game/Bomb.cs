@@ -10,11 +10,12 @@ namespace TcGame
 {
     class Bomb : Item
     {
-        static Texture tex = new Texture("Data/Textures/Bomb.jpg");
+        static Texture tex = new Texture("Data/Textures/Bomb.png");
 
         public Bomb() : base(tex)
         {
+            Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }
-       
+
     }
 }
