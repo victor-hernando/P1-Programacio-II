@@ -13,7 +13,7 @@ namespace TcGame
         static Texture texture = new Texture("Data/Textures/Sword.png");
         public Sword() : base(texture)
         {
-            Origin = new Vector2f(GetLocalBounds().Width/2, GetLocalBounds().Height/2);
+            Origin = new Vector2f(GetLocalBounds().Width / 2, GetLocalBounds().Height / 2);
         }
     }
 }
