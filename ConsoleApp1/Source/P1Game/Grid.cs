@@ -220,5 +220,27 @@ namespace TcGame
         {
 
         }
+
+        public void MousePressed(object sender, MouseButtonEventArgs e)
+        {
+            if(Mouse.IsButtonPressed(Mouse.Button.Left))
+            {
+                float mx, my;
+                Vector2i mousePosition = Mouse.GetPosition();
+                mx = mousePosition.X;
+                my = mousePosition.Y;
+
+                for(int i = 0; i <= numRows; i++)
+                {
+                    for(int j = 0; j <= numColumns; j++)
+                    {
+                        if(mx == i && my == j)
+                        {
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 }

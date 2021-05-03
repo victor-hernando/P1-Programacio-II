@@ -21,7 +21,9 @@ namespace TcGame
       grid.Init();
 
       // Key Binding
-      window.KeyPressed += grid.HandleKeyPressed; 
+      window.KeyPressed += grid.HandleKeyPressed;
+            window.MouseButtonPressed += grid.MousePressed; // <- Ho he afegit jo
+
     }
 
     public void DeInit()
