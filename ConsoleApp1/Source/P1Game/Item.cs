@@ -1,16 +1,13 @@
 ﻿using SFML.Graphics;
+using System;
 
 namespace TcGame
 {
-    public abstract class Item : Sprite
-    {
-        public Item(int number)
+  public abstract class Item : Sprite
+  {
+        public Item(Texture texture)
         {
-            switch (number)
-            {
-                default:
-                    break;
-            }
+            Texture = texture;
         }
-    }
+  }
 }
