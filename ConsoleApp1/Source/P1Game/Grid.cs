@@ -226,20 +226,22 @@ namespace TcGame
             if(Mouse.IsButtonPressed(Mouse.Button.Left))
             {
                 float mx, my;
-                Vector2i mousePosition = Mouse.GetPosition();
-                mx = mousePosition.X;
-                my = mousePosition.Y;
 
-                for(int i = 0; i <= numRows; i++)
+                mx = e.X;
+                my = e.Y;
+
+                for (int i = 0; i < items.Count; ++i)
                 {
-                    for(int j = 0; j <= numColumns; j++)
+                    if(items[i] != null)
                     {
-                        if(mx == i && my == j)
+                        if ((mx > items[i].Position.X - SlotWidth / 2.0f && mx < items[i].Position.X + SlotWidth / 2.0f) &&
+                        (my > items[i].Position.Y - SlotHeight / 2.0f && my < items[i].Position.Y + SlotHeight / 2.0f))
                         {
-                            
+                            items[i] = null;
                         }
-                    }
+                    }                          
                 }
+                
             }
         }
     }
