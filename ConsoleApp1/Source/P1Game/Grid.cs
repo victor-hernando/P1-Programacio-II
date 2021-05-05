@@ -142,7 +142,7 @@ namespace TcGame
         private Item NewRandomItem()
         {
             switch (rnd.Next(6))
-            {
+            { 
                 case 0:
                     return new Blinky();
                 case 1:
@@ -163,12 +163,27 @@ namespace TcGame
 
         private void RemoveLastItem()
         {
-
+            int index = 0;
+            foreach (Item it in items)
+            {
+                if (index == items.Count - 1)
+                {
+                    items.Remove(it);
+                    break;
+                }
+                index++;
+            }
         }
 
         private void NullAllCoins()
         {
-
+            for(int i= 0; i < items.Count; i++)
+            {
+                if (items[i] != null && items[i].GetType() == typeof(Coin))
+                {
+                    items[i] = null;
+                }
+            }
         }
 
         private void RemoveNullSlots()
@@ -223,7 +238,7 @@ namespace TcGame
 
         public void MousePressed(object sender, MouseButtonEventArgs e)
         {
-            if(Mouse.IsButtonPressed(Mouse.Button.Left))
+            if(true)
             {
                 float mx, my;
 
