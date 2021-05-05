@@ -241,7 +241,6 @@ namespace TcGame
             if(true)
             {
                 float mx, my;
-
                 mx = e.X;
                 my = e.Y;
 
@@ -251,12 +250,42 @@ namespace TcGame
                     {
                         if ((mx > items[i].Position.X - SlotWidth / 2.0f && mx < items[i].Position.X + SlotWidth / 2.0f) &&
                         (my > items[i].Position.Y - SlotHeight / 2.0f && my < items[i].Position.Y + SlotHeight / 2.0f))
-                        {
+                        {                            
+                            if(items[i].GetType() == typeof(Bomb))
+                            {
+                                IsBomb(items[i]);
+                            }
+
                             items[i] = null;
                         }
                     }                          
+                }               
+            }
+        }
+
+        public void IsBomb(Item bomb)
+        {
+            for (int j = 0; j < items.Count; ++j)
+            {
+                if (items[j] != null)
+                {
+                    if ((items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.Y == bomb.Position.Y) ||
+                    (items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.Y == bomb.Position.Y) ||
+                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X == bomb.Position.X) ||
+                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X == bomb.Position.X) || 
+                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.X + SlotWidth == bomb.Position.X
+                    && items[j].Position.Y + SlotHeight == bomb.Position.Y) ||
+                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.X + SlotWidth == bomb.Position.X
+                    && items[j].Position.Y - SlotHeight == bomb.Position.Y) ||
+                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.X - SlotWidth == bomb.Position.X
+                    && items[j].Position.Y + SlotHeight == bomb.Position.Y) ||
+                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.X - SlotWidth == bomb.Position.X
+                    && items[j].Position.Y - SlotHeight == bomb.Position.Y)
+                    )
+                    {
+                        items[j] = null;
+                    }
                 }
-                
             }
         }
     }
