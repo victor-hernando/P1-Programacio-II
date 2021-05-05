@@ -240,10 +240,8 @@ namespace TcGame
                             {
                                 IsBomb(items[i]);
                             }
-                            else
-                            {
-                                items[i] = null;
-                            }                           
+
+                            items[i] = null;
                         }
                     }                          
                 }               
@@ -256,10 +254,10 @@ namespace TcGame
             {
                 if (items[j] != null)
                 {
-                    if (items[j].Position.X + SlotWidth == bomb.Position.X ||
-                    items[j].Position.X - SlotWidth == bomb.Position.X ||
-                    items[j].Position.Y - SlotHeight == bomb.Position.Y ||
-                    items[j].Position.Y + SlotHeight == bomb.Position.Y)
+                    if ((items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.Y == bomb.Position.Y) ||
+                    (items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.Y == bomb.Position.Y) ||
+                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X == bomb.Position.X) ||
+                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X == bomb.Position.X))
                     {
                         items[j] = null;
                     }
