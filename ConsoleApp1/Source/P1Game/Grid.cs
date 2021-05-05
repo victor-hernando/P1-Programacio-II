@@ -265,8 +265,7 @@ namespace TcGame
                     (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.X - SlotWidth == bomb.Position.X
                     && items[j].Position.Y + SlotHeight == bomb.Position.Y) ||
                     (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.X - SlotWidth == bomb.Position.X
-                    && items[j].Position.Y - SlotHeight == bomb.Position.Y)
-                    )
+                    && items[j].Position.Y - SlotHeight == bomb.Position.Y))
                     {
                         items[j] = null;
                     }
