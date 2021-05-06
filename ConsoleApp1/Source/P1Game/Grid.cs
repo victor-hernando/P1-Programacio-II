@@ -214,7 +214,7 @@ namespace TcGame
         {
             for (int i = 0; i < items.Count; i++)
             {
-                if (items[i] != null && items[i].GetType() == typeof(Weapon))
+                if (items[i] != null && (items[i].GetType() == typeof(Sword)|| items[i].GetType() == typeof(Axe)))
                 {
                     items[i] = null;
                 }
@@ -256,7 +256,48 @@ namespace TcGame
 
         private void OrderItems()
         {
-            //items.
+            Item[] memory = new Item[items.Count];
+            for (int i = 0; i < memory.Length; i++)
+            {
+                memory[i] = items[i];
+            }
+            items.Clear();
+            
+            foreach (Item it in memory)
+            {
+                if (it != null && it.GetType() == typeof(Heart))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && (it.GetType() == typeof(Sword) || it.GetType() == typeof(Axe)))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && it.GetType() == typeof(Bomb))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && it.GetType() == typeof(Coin))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && (it.GetType() == typeof(Blinky)|| it.GetType() == typeof(Blinky)))
+                {
+                    items.Add(it);
+                }
+            }
         }
 
         private void ReverseItems()
