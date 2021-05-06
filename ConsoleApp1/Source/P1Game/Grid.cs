@@ -141,8 +141,8 @@ namespace TcGame
 
         private Item NewRandomItem()
         {
-            switch (rnd.Next(6))
-            {
+            switch (rnd.Next(7))
+            { 
                 case 0:
                     return new Blinky();
                 case 1:
@@ -155,6 +155,8 @@ namespace TcGame
                     return new Coin();
                 case 5:
                     return new Sword();
+                case 6:
+                    return new Heart();
                 default:
                     return null;
             }
@@ -188,36 +190,62 @@ namespace TcGame
 
         private void RemoveNullSlots()
         {
-
+            bool finished=false;
+            foreach (Item it in items)
+            {
+                if (it == null)
+                {
+                    items.Remove(it);
+                    finished = false;
+                    break;
+                }
+                else finished = true;
+            }
+            if(finished!=true)RemoveNullSlots();
         }
 
         private void RemoveAllItems()
         {
-
+            items.Clear();
         }
 
 
         private void NullAllWeapons()
         {
-
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i] != null && (items[i].GetType() == typeof(Sword)|| items[i].GetType() == typeof(Axe)))
+                {
+                    items[i] = null;
+                }
+            }
         }
 
 
         private bool HasNullSlot()
         {
-
+            foreach (Item it in items)
+            {
+                if(it==null)return true;
+            }
             return false;
         }
 
         private int GetFirstNullSlot()
         {
-
+            int count=0;
+            foreach (Item it in items)
+            {
+                if (it == null) return count;
+                count++;
+            }
             return 0;
         }
 
         private void AddItemAtIndex(Item item, int index)
         {
-
+            items.RemoveAt(index);
+            items.Insert(index, item);
         }
 
         private void AddItemAtEnd(Item item)
@@ -228,12 +256,53 @@ namespace TcGame
 
         private void OrderItems()
         {
-
+            Item[] memory = new Item[items.Count];
+            for (int i = 0; i < memory.Length; i++)
+            {
+                memory[i] = items[i];
+            }
+            items.Clear();
+            
+            foreach (Item it in memory)
+            {
+                if (it != null && it.GetType() == typeof(Heart))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && (it.GetType() == typeof(Sword) || it.GetType() == typeof(Axe)))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && it.GetType() == typeof(Bomb))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && it.GetType() == typeof(Coin))
+                {
+                    items.Add(it);
+                }
+            }
+            foreach (Item it in memory)
+            {
+                if (it != null && (it.GetType() == typeof(Blinky)|| it.GetType() == typeof(Blinky)))
+                {
+                    items.Add(it);
+                }
+            }
         }
 
         private void ReverseItems()
         {
-
+            items.Reverse();
         }
 
         public void MousePressed(object sender, MouseButtonEventArgs e)
