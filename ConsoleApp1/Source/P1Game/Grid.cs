@@ -257,49 +257,23 @@ namespace TcGame
 
         private void OrderItems()
         {
-            /*Item[] memory = new Item[items.Count];
+            Item[] memory = new Item[items.Count];
             for (int i = 0; i < memory.Length; i++)
             {
                 memory[i] = items[i];
             }
             items.Clear();
             
-            foreach (Item it in memory)
+            for(int pr=0; pr < 5; pr++)
             {
-                if (it != null && it.GetType() == typeof(Heart))
+                foreach (Item it in memory)
                 {
-                    items.Add(it);
+                    if (it != null && it.order == pr)
+                    {
+                        items.Add(it);
+                    }
                 }
             }
-            foreach (Item it in memory)
-            {
-                if (it != null && (it.GetType() == typeof(Sword) || it.GetType() == typeof(Axe)))
-                {
-                    items.Add(it);
-                }
-            }
-            foreach (Item it in memory)
-            {
-                if (it != null && it.GetType() == typeof(Bomb))
-                {
-                    items.Add(it);
-                }
-            }
-            foreach (Item it in memory)
-            {
-                if (it != null && it.GetType() == typeof(Coin))
-                {
-                    items.Add(it);
-                }
-            }
-            foreach (Item it in memory)
-            {
-                if (it != null && (it.GetType() == typeof(Blinky)|| it.GetType() == typeof(Blinky)))
-                {
-                    items.Add(it);
-                }
-            }*/
-            items.OrderBy(item => item.order);
         }
 
         private void ReverseItems()
