@@ -11,7 +11,7 @@ namespace TcGame
     class Heart : Item
     {
         static Texture tex = new Texture("Data/Textures/Heart.png");
-        public Heart() : base(tex)
+        public Heart() : base(tex, 0)
         {
             Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }

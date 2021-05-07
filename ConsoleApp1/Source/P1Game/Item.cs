@@ -5,9 +5,11 @@ namespace TcGame
 {
   public abstract class Item : Sprite
   {
-        public Item(Texture texture)
+        public int order;
+        public Item(Texture texture, int ordre)
         {
             Texture = texture;
+            order = ordre;
         }
   }
 }

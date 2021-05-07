@@ -1,8 +1,9 @@
 ﻿using SFML.Graphics;
 using SFML.Window;
-using System;
-using System.Collections.Generic;
 using SFML.System;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 
 namespace TcGame
@@ -256,7 +257,7 @@ namespace TcGame
 
         private void OrderItems()
         {
-            Item[] memory = new Item[items.Count];
+            /*Item[] memory = new Item[items.Count];
             for (int i = 0; i < memory.Length; i++)
             {
                 memory[i] = items[i];
@@ -297,7 +298,8 @@ namespace TcGame
                 {
                     items.Add(it);
                 }
-            }
+            }*/
+            items.OrderBy(item => item.order);
         }
 
         private void ReverseItems()
@@ -307,53 +309,68 @@ namespace TcGame
 
         public void MousePressed(object sender, MouseButtonEventArgs e)
         {
-            if(true)
+            if (true)
             {
-                float mx, my;
-                mx = e.X;
-                my = e.Y;
+                int mouseColumn = (int)Math.Floor((double)e.X / (double)SlotWidth);
+                int mouseRow = (int)Math.Floor((double)e.Y / (double)SlotHeight);
+                int itemIndexClicked = mouseRow * numColumns + mouseColumn;
 
                 for (int i = 0; i < items.Count; ++i)
                 {
-                    if(items[i] != null)
+                    if (items[i] != null)
                     {
-                        if ((mx > items[i].Position.X - SlotWidth / 2.0f && mx < items[i].Position.X + SlotWidth / 2.0f) &&
-                        (my > items[i].Position.Y - SlotHeight / 2.0f && my < items[i].Position.Y + SlotHeight / 2.0f))
-                        {                            
-                            if(items[i].GetType() == typeof(Bomb))
+                        if (itemIndexClicked == i)
+                        {
+                            if (items[i].GetType() == typeof(Bomb))
                             {
-                                IsBomb(items[i]);
+                                IsBomb(itemIndexClicked, mouseColumn, mouseRow);
                             }
 
                             items[i] = null;
                         }
-                    }                          
-                }               
+                    }
+                }
             }
         }
 
-        public void IsBomb(Item bomb)
+        public void IsBomb(int indexBomba, int yBomba, int xBomba)
         {
-            for (int j = 0; j < items.Count; ++j)
+            Item[,] itemArray = new Item[numRows, numColumns];
+            int index = 0;
+
+            for (int i = 0; i < numRows; i++)
             {
-                if (items[j] != null)
+                for (int j = 0; j < numColumns; j++)
                 {
-                    if ((items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.Y == bomb.Position.Y) ||
-                    (items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.Y == bomb.Position.Y) ||
-                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X == bomb.Position.X) ||
-                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X == bomb.Position.X) || 
-                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.X + SlotWidth == bomb.Position.X
-                    && items[j].Position.Y + SlotHeight == bomb.Position.Y) ||
-                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X + SlotWidth == bomb.Position.X && items[j].Position.X + SlotWidth == bomb.Position.X
-                    && items[j].Position.Y - SlotHeight == bomb.Position.Y) ||
-                    (items[j].Position.Y + SlotHeight == bomb.Position.Y && items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.X - SlotWidth == bomb.Position.X
-                    && items[j].Position.Y + SlotHeight == bomb.Position.Y) ||
-                    (items[j].Position.Y - SlotHeight == bomb.Position.Y && items[j].Position.X - SlotWidth == bomb.Position.X && items[j].Position.X - SlotWidth == bomb.Position.X
-                    && items[j].Position.Y - SlotHeight == bomb.Position.Y))
+                    if(items[index] != null)
                     {
-                        items[j] = null;
+                        itemArray[i, j] = items[index];
+                    }
+                    else
+                    {
+                        itemArray[i, j] = null;
+                    }
+
+                    index++;
+                }
+            }
+
+            for (int i = 0; i < numRows; i++)
+            {
+                for (int j = 0; j < numColumns; j++)
+                {
+                    if (Math.Abs(i - xBomba) < 2 && Math.Abs(j - yBomba) < 2)
+                    {
+                        itemArray[i, j] = null;
                     }
                 }
+            }
+
+            items.Clear();
+
+            foreach (Item it in itemArray)
+            {
+                items.Add(it);
             }
         }
     }

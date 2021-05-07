@@ -12,7 +12,7 @@ namespace TcGame
     {
         static Texture tex = new Texture("Data/Textures/Bomb.png");
 
-        public Bomb() : base(tex)
+        public Bomb() : base(tex,2)
         {
             Origin = new Vector2f(GetLocalBounds().Width, GetLocalBounds().Height) / 2.0f;
         }

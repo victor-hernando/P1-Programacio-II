@@ -10,7 +10,7 @@ namespace TcGame
 {
     abstract class Weapon : Item
     {
-        public Weapon(Texture tex) : base(tex)
+        public Weapon(Texture tex, int ord) : base(tex,ord)
         {
         }
     }
