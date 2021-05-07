@@ -180,7 +180,7 @@ namespace TcGame
 
         private void NullAllCoins()
         {
-            for(int i= 0; i < items.Count; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 if (items[i] != null && items[i].GetType() == typeof(Coin))
                 {
@@ -342,16 +342,12 @@ namespace TcGame
             {
                 for (int j = 0; j < numColumns; j++)
                 {
-                    if(items[index] != null)
+                    try
                     {
                         itemArray[i, j] = items[index];
+                        index++;
                     }
-                    else
-                    {
-                        itemArray[i, j] = null;
-                    }
-
-                    index++;
+                    catch (Exception) { }
                 }
             }
 
